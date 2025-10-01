@@ -1,0 +1,179 @@
+/* Importando uma fonte moderna do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+/* Reset básico e configurações globais */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f7f7f7;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px; /* Adiciona padding geral para não colar nas bordas em telas pequenas */
+}
+
+header {
+    margin: 20px 0;
+    text-align: center;
+}
+
+.container {
+    background-color: #fff; /* O container principal agora é apenas um invólucro para os cards */
+    padding: 0; /* Removido padding do container principal */
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 900px; /* Aumenta a largura máxima para as duas colunas */
+    display: flex; /* Transforma o container em flex container para alinhar seus filhos */
+    flex-direction: column; /* Começa com layout de coluna para mobile */
+    gap: 20px; /* Espaçamento entre os elementos do container */
+}
+
+/* Estilos para os títulos */
+h1, h2, h3 {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+h1 {
+    font-size: 2em;
+}
+
+#total-display {
+    font-size: 2.5em;
+    letter-spacing: 1px;
+}
+
+h3 {
+    border-bottom: 1px solid #eee; /* Linha mais suave */
+    padding-bottom: 10px;
+    margin-top: 0; /* Ajusta a margem para dentro do card */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px; /* Espaçamento entre o ícone e o texto do h3 */
+}
+
+/* Estilo para os cards */
+.card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.08); /* Sombra mais leve para os cards internos */
+    flex: 1; /* Permite que os cards cresçam para preencher o espaço */
+}
+
+/* Seção do Saldo */
+.balance {
+    padding: 20px;
+    text-align: center;
+    background-color: #f0f0f0; /* Cor de fundo para o card de saldo */
+    border-radius: 10px;
+    margin-bottom: 20px; /* Espaçamento abaixo do card de saldo */
+}
+
+/* Estilos para o wrapper de conteúdo (formulário e histórico) */
+.content-wrapper {
+    display: flex;
+    flex-direction: column; /* Por padrão, em coluna (para mobile) */
+    gap: 20px; /* Espaçamento entre os cards */
+    padding: 20px; /* Adiciona padding aqui para os cards internos */
+}
+
+/* Media query para telas maiores (desktop) */
+@media (min-width: 768px) {
+    .content-wrapper {
+        flex-direction: row; /* Em telas maiores, os cards ficam em linha */
+    }
+}
+
+
+/* Estilos do Formulário */
+.form-control {
+    margin-bottom: 15px;
+}
+
+.form-control label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-control input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #dedede;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.btn {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #5b21b6; /* Um roxo moderno */
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    display: flex; /* Permite alinhar ícone e texto */
+    justify-content: center;
+    align-items: center;
+    gap: 8px; /* Espaçamento entre ícone e texto do botão */
+}
+
+.btn:hover {
+    background-color: #4c1d95;
+}
+
+/* Estilos da Lista de Histórico */
+.list {
+    list-style-type: none;
+    margin-top: 15px;
+}
+
+.list li {
+    background-color: #fff;
+    color: #333;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    margin: 10px 0;
+    border-left: 5px solid #c0392b; /* Vermelho para despesa, alterado para a esquerda */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+    position: relative;
+    font-size: 0.95em; /* Levemente menor para caber melhor */
+}
+
+/* Botão de deletar que aparece ao passar o mouse */
+.list li .delete-btn {
+    cursor: pointer;
+    background-color: #e74c3c;
+    color: white;
+    border: 0;
+    font-size: 18px;
+    line-height: 20px;
+    padding: 2px 8px;
+    position: absolute;
+    left: 0; /* Alinha à esquerda */
+    top: 50%;
+    transform: translate(-100%, -50%); /* Ajusta posição para ficar oculto à esquerda */
+    opacity: 0;
+    transition: opacity 0.2s ease, transform 0.2s ease; /* Transição também para o transform */
+    border-top-left-radius: 5px; /* Adiciona bordas arredondadas ao botão */
+    border-bottom-left-radius: 5px;
+}
+
+.list li:hover .delete-btn {
+    opacity: 1;
+    transform: translate(0%, -50%); /* Faz ele deslizar para a direita */
+}
